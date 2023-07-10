@@ -24,16 +24,27 @@ class _DetalleProcesoCrediticioScreenState
             child: Column(
               children: [
                 ListTile(
-                  title: const Text('Tipo de Credito'),
-                  subtitle: Text(proceso['credito']),
-                  tileColor: Colors.grey[200],
+                  title: Text("Caso #${proceso['id'].toString()}"),
+                  // tileColor: Colors.grey[200],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 ListTile(
-                    title: const Text('Estado', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                    subtitle: Text(proceso['estado'], style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                  title: const Text('Tipo de Credito'),
+                  subtitle: Text(proceso['credito']),
+                  // tileColor: Colors.grey[200],
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ListTile(
+                    title: const Text('Estado',
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold)),
+                    subtitle: Text(proceso['estado'],
+                        style: const TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold)),
                     tileColor: (proceso['estado'] == "En Revision")
                         ? Colors.yellow
                         : (proceso['estado'] == "Aprobado")
@@ -45,7 +56,7 @@ class _DetalleProcesoCrediticioScreenState
                 ListTile(
                   title: const Text('Monto'),
                   subtitle: Text("${proceso['monto']}Bs"),
-                  tileColor: Colors.grey[200],
+                  // tileColor: Colors.grey[200],
                 ),
                 const SizedBox(
                   height: 20,
@@ -53,7 +64,7 @@ class _DetalleProcesoCrediticioScreenState
                 ListTile(
                   title: const Text('Plazo'),
                   subtitle: Text("${proceso['plazo']} Meses"),
-                  tileColor: Colors.grey[200],
+                  // tileColor: Colors.grey[200],
                 ),
                 const SizedBox(
                   height: 20,
@@ -61,7 +72,7 @@ class _DetalleProcesoCrediticioScreenState
                 ListTile(
                   title: const Text('Fecha de Solicitud'),
                   subtitle: Text(proceso['fecha_solicitud']),
-                  tileColor: Colors.grey[200],
+                  // tileColor: Colors.grey[200],
                 ),
                 const SizedBox(
                   height: 20,

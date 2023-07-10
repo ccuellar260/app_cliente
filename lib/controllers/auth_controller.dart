@@ -1,5 +1,5 @@
 // import 'package:dio/dio.dart';
-// ignore_for_file: avoid_print, unused_import
+// ignore_for_file: avoid_print, unused_import, non_constant_identifier_names
 
 import 'package:app_cliente_si2/models/empresa.dart';
 import 'package:http/http.dart' as http;
