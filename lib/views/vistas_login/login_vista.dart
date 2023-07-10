@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously, unnecessary_this
+
 import 'package:flutter/material.dart';
 import 'package:app_cliente_si2/controllers/auth_controller.dart';
 
@@ -14,7 +16,6 @@ class _LoginVistaState extends State<LoginVista> {
   String usuario = '';
   String contra = '';
   int seleccionado = 0; //seleciona un id de la empresa
-  // String seleccionadoNombre = 'seleccione una empresa';
   // String mensaje = '';
   bool ban = false;
   final AuthController a1 = AuthController();
@@ -54,48 +55,32 @@ class _LoginVistaState extends State<LoginVista> {
 
     final fondoArriba = Container(
       //contenedor
-      height: tamanio.height * 0.4, //cuanto de alto, mostrar solo el 40 %
+      height: tamanio.height, //cuanto de alto, mostrar solo el 40 %
       width: double.infinity, //ancho, todo el ancho de la pantalla
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
           //para decorar
           gradient: LinearGradient(
         //degradar
         colors: <Color>[
-          // Color.fromRGBO(63, 63, 156, 1.0),
-          // Color.fromRGBO(70, 70, 178, 1.0),
-          Colors.blueGrey.shade900,
-          Colors.blueGrey.shade700
+          Color.fromARGB(255, 244, 65, 65),
+          Color.fromARGB(255, 214, 111, 111),
+          Color.fromARGB(255, 221, 174, 174),
         ],
       )),
-    );
-    //crerar un circulo blanco opaco!
-    final circulo = Container(
-      width: 100.0,
-      height: 100.0,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.0),
-          color: const Color.fromRGBO(255, 255, 255, 0.10)),
     );
 
     return Stack(
       children: <Widget>[
         fondoArriba,
-        //  circulo,
-        //para posicionar widgets
-        // Positioned(top: 90.0, left: 30.0, child: circulo),
-        // Positioned(top: -40.0, right: -30.0, child: circulo),
-        // Positioned(top: 180.0, right: -10.0, child: circulo),
-        // Positioned(  bottom: 120.0,right: 20.0,child: circulo),
-        // Positioned(  bottom: -50.0,left: -20.0,child: circulo),
-
         //poner el logo y el nombre
         Container(
-          padding: const EdgeInsets.only(top: 60.0), //padding de arriba
+          padding: const EdgeInsets.only(top: 50.0), //padding de arriba
           width: double.infinity,
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // Icon( Icons.person_pin_circle, color: Colors.white, size: 100.0),
+              const Icon(Icons.person_pin_rounded,
+                  color: Colors.white, size: 100.0),
               Image.asset(
                 'assets/images/logo-v2.png',
                 height: 150.0,
@@ -125,14 +110,10 @@ class _LoginVistaState extends State<LoginVista> {
             decoration: BoxDecoration(
                 color: Colors.grey[200],
                 borderRadius: BorderRadius.circular(10.0),
-                gradient: const LinearGradient(colors: [
-                  Color.fromARGB(255, 237, 10, 10),
-                  Color.fromARGB(255, 231, 113, 113),
-                ])
-                /* boxShadow: const <BoxShadow>[
+                boxShadow: const <BoxShadow>[
                   //para las sombras
                   BoxShadow(
-                      color: Color.fromARGB(66, 230, 89, 89),
+                      color: Color.fromARGB(66, 70, 68, 68),
                       blurRadius: 5.0, //potencia de la sombra
                       offset: Offset(
                         0.0,
@@ -140,8 +121,7 @@ class _LoginVistaState extends State<LoginVista> {
                       ), //solo abajo las sombras
                       spreadRadius: 3.0 //dimension sde la sombra
                       )
-                ] */
-                ),
+                ]),
             child: Form(
               key: _formKey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -160,7 +140,7 @@ class _LoginVistaState extends State<LoginVista> {
                   const SizedBox(
                     height: 10.0,
                   ),
-                  _crearCajas('Registro o Correo'),
+                  _crearCajas('Correo'),
                   const SizedBox(
                     height: 10.0,
                   ),
@@ -290,11 +270,11 @@ class _LoginVistaState extends State<LoginVista> {
             //  hintText: 'ejemplo@gmail.com',
             labelText: tipo,
             contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 10)),
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10)),
         validator: (value) {
           if (value.toString().isEmpty) {
             //si esta vacio
-            return "tiene que colocar datos";
+            return "Por favor ingrese su correo";
           }
           return null;
         },
@@ -325,11 +305,11 @@ class _LoginVistaState extends State<LoginVista> {
             //  hintText: 'ejemplo@gmail.com',
             labelText: 'Contrasena',
             contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 10)),
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10)),
         validator: (value) {
           if (value.toString().isEmpty) {
             //si esta vacio
-            return "tiene que colocar datos";
+            return "Por favor ingrese su contraseña";
           }
           return null;
         },
@@ -345,8 +325,7 @@ class _LoginVistaState extends State<LoginVista> {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
           //estilos del boton
-          // alignment: Alignment(x, y),
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.grey,
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0))),
       child: Container(
@@ -371,7 +350,7 @@ class _LoginVistaState extends State<LoginVista> {
             await a1.loginStore(usuario, contra, seleccionado);
             if (a1.estado == 'Login Existo') {
               print('=>> SII IR A DABOARD');
-              Navigator.pushNamed(cont_boton, 'home');
+              Navigator.pushReplacementNamed(cont_boton, 'home');
             } else {
               print('=>> mostrar mensaje error');
               // print(a1.mensaje);

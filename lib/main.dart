@@ -14,25 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return
-        // MultiBlocProvider(  //es para el bloc
-        //     providers: [
-
-        //     ],
-        //     child: MaterialApp(
-        //   debugShowCheckedModeBanner: false,
-        //   title: 'Flutter Demo',
-
-        //   routes: getRoutes(),
-        //    initialRoute: 'login',
-        //     ),
-        // );
-        MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      theme: ThemeData(useMaterial3: true),
+      title: 'CreditDocuManager',
       routes: getRoutes(),
       initialRoute: 'login',
-      // initialRoute: 'home',
     );
   }
 }

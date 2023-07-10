@@ -13,6 +13,7 @@ class VistaDashboard extends StatelessWidget {
         child: Text(
           'Hello, Welcome to CreditDocuManager',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
         ),
       ),
     );
