@@ -1,7 +1,7 @@
 // ignore_for_file: dead_code, unused_import
 
-import 'package:app_cliente_si2/controllers/auth_controller.dart';
-import 'package:app_cliente_si2/widgets/custom_drawer.dart';
+import 'package:app_cliente/controllers/auth_controller.dart';
+import 'package:app_cliente/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 // import 'package:app_cliente_si2/pie_chart.dart';

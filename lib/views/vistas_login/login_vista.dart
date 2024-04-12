@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_print, use_build_context_synchronously, unnecessary_this, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:app_cliente_si2/controllers/auth_controller.dart';
+import 'package:app_cliente/controllers/auth_controller.dart';
 
 class LoginVista extends StatefulWidget {
   const LoginVista({super.key});

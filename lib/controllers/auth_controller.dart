@@ -1,12 +1,12 @@
 // import 'package:dio/dio.dart';
 // ignore_for_file: avoid_print, unused_import, non_constant_identifier_names
 
-import 'package:app_cliente_si2/models/empresa.dart';
+import 'package:app_cliente/models/empresa.dart';
 import 'package:http/http.dart' as http;
-import 'package:app_cliente_si2/models/usuario.dart';
+import 'package:app_cliente/models/usuario.dart';
 import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:app_cliente_si2/utils/constantes.dart';
+import 'package:app_cliente/utils/constantes.dart';
 
 class AuthController {
   String estado = '';
